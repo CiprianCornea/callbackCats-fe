@@ -2,15 +2,7 @@
   font-family: 'Poppins', sans-serif;
 }
 
-.text-box {
-  width: 90%;
-  color: white;
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  //text-align: center;
-}
+
 
 .sub-header {
   width: 90%;
@@ -20,7 +12,7 @@
   left: 20%;
   transform: translate(-50%, -50%);
   text-align: center;
-  margin-top: 100px;
+  margin-top: 130px;
 }
 
 .about-us{
@@ -28,6 +20,16 @@
   margin: auto;
   padding-top: 80px;
   padding-bottom: 50px;
+}
+
+.text-box {
+  width: 90%;
+  color: white;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  //text-align: center;
 }
 
 .about-col{
