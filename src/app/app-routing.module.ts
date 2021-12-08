@@ -5,6 +5,7 @@ import {AboutPageComponent} from "./modules/about/pages/about-page/about-page.co
 import {ContactPageComponent} from "./modules/contact/pages/contact-page/contact-page.component";
 import {MaterialsPageComponent} from "./modules/materials/pages/materials-page/materials-page.component";
 import {LoginPageComponent} from "./modules/core/pages/login-page/login-page.component";
+import {SignUpPageComponent} from "./modules/core/pages/sign-up-page/sign-up-page.component";
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -12,7 +13,7 @@ const routes: Routes = [
   {path: 'about', component: AboutPageComponent},
   {path: 'contact', component: ContactPageComponent},
   {path: 'materials', component: MaterialsPageComponent},
-  {path: 'login', component: LoginPageComponent}
+  {path: 'login', component: SignUpPageComponent}
 ];
 
 @NgModule({
