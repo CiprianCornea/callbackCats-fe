@@ -4,7 +4,6 @@ import {HomePageComponent} from "./modules/bac360/pages/home-page/home-page.comp
 import {AboutPageComponent} from "./modules/about/pages/about-page/about-page.component";
 import {ContactPageComponent} from "./modules/contact/pages/contact-page/contact-page.component";
 import {MaterialsPageComponent} from "./modules/materials/pages/materials-page/materials-page.component";
-import {LoginPageComponent} from "./modules/core/pages/login-page/login-page.component";
 import {SignUpPageComponent} from "./modules/core/pages/sign-up-page/sign-up-page.component";
 
 const routes: Routes = [
