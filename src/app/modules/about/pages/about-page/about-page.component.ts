@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about-page.component.scss']
 })
 export class AboutPageComponent implements OnInit {
+  imageSrc = "src/app/shared/images/about.jpg";
+  imageAlt="iphone"
 
   constructor() { }
 

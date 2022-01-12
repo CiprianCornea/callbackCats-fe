@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from "../../models/user";
 import {UserRepository} from "../../services/user.repository";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-sign-up-page',
@@ -8,21 +9,31 @@ import {UserRepository} from "../../services/user.repository";
   styleUrls: ['./sign-up-page.component.scss']
 })
 export class SignUpPageComponent implements OnInit {
+
   public testVar: User = {
-    "username":"larisa",
-    "password":"larisa",
-    "email":"larisa@math.ubbcluj.ro",
-    "isAdmin":false,
-    "chaptersDone":"A"
+    username:"aa",
+    password:"aaa",
+    email:"aa@math.ubbcluj.ro",
+    isAdmin:false,
+    chaptersDone:"B"
   };
 
 
   constructor(
-    private userRepository: UserRepository
+    private userRepository: UserRepository,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
-    this.userRepository.signUp(this.testVar).subscribe(result => console.log(result));
+    //this.userRepository.login();
+    let user = new User();
+    user.username = "testul1"
+    user.password = "parola1"
+    user.email = "testul1@bac360.com"
+    user.isAdmin = true
+    user.chaptersDone = "ABCD"
+    //this.userRepository.signUp(user).subscribe(res => console.log(res));
+    this.authService.login('testul1', 'parola1').subscribe(res => console.log(res));
 
     const signUpButton = document.getElementById('SignUp');
     const signInButton = document.getElementById('SignIn');
