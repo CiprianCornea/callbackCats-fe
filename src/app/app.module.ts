@@ -7,20 +7,29 @@ import {Bac360Module} from "./modules/bac360/bac360.module";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatIconModule} from "@angular/material/icon";
 import {HttpClientModule} from "@angular/common/http";
+import {CommonModule} from "@angular/common";
+import {MaterialsModule} from "./modules/materials/materials.module";
+
+// import {BasicAuthHttpInterceptorService} from "./modules/core/interceptors/basic-auth-http-interceptor.service";
 
 @NgModule({
   declarations: [
-    AppComponent
-  ],
+    AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     Bac360Module,
     BrowserAnimationsModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule,
+    MaterialsModule,
   ],
-  providers: [],
+  providers: [
+    // {
+    //   provide:HTTP_INTERCEPTORS, useClass:BasicAuthHttpInterceptorService, multi:true
+    // }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

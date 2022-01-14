@@ -29,6 +29,7 @@
     "font-awesome": "^4.7.0",
     "ng2-pdf-viewer": "^7.0.2",
     "rxjs": "~6.6.0",
+    "safe-pipe": "^1.0.4",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },

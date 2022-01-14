@@ -25,15 +25,21 @@ export class SignUpPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.authService.login('admin1','admin1').subscribe();
+    //this.getAccessToken(this.authRequest);
     //this.userRepository.login();
-    let user = new User();
-    user.username = "testul1"
-    user.password = "parola1"
-    user.email = "testul1@bac360.com"
-    user.isAdmin = true
-    user.chaptersDone = "ABCD"
-    //this.userRepository.signUp(user).subscribe(res => console.log(res));
-    this.authService.login('testul1', 'parola1').subscribe(res => console.log(res));
+    // let user = new User();
+    // user.username = "admin1"
+    // user.password = "admin1"
+    // user.email = "admin1@bac360.com"
+    // user.isAdmin = true
+    // user.chaptersDone = "A"
+    // this.userRepository.signUp(user).subscribe(res => console.log(res));
+   //  this.authService.login('testul1', 'parola1').subscribe(
+   //    res => console.log(res)
+   // );
+   //  this.authService.login(user.username, user.password).subscribe();
+    //this.authService.generateToken({username: 'testul1', password: 'parola1'}).subscribe();
 
     const signUpButton = document.getElementById('SignUp');
     const signInButton = document.getElementById('SignIn');
@@ -51,5 +57,22 @@ export class SignUpPageComponent implements OnInit {
       container.classList.remove("right-panel-active")
     });
   }
+
+  authRequest:any={
+    "username":"ux",
+    "password":"px"
+  };
+  response: any;
+
+  // public getAccessToken(authRequest:any){
+  //   let resp=this.authService.generateToken(authRequest);
+  //   resp.subscribe(data=>this.accessApi(data));
+  // }
+  //
+  //
+  // public accessApi(token:any){
+  //   let resp=this.authService.welcome(token);
+  //   resp.subscribe(data=>this.response=data);
+  // }
 
 }

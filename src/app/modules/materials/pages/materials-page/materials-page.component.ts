@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ChapterRepository} from "../../services/chapter.repository";
-import {Chapter} from "../../models/chapter";
+import {DomSanitizer, SafeResourceUrl, SafeUrl} from "@angular/platform-browser";
+import {ChapterResponseDto} from "../../models/dto/chapter-response.dto";
 
 @Component({
   selector: 'app-materials-page',
@@ -8,36 +9,103 @@ import {Chapter} from "../../models/chapter";
   styleUrls: ['./materials-page.component.scss']
 })
 export class MaterialsPageComponent implements OnInit {
-  public c9=false;
-  public c10=true;
-  public c11=true;
-  public c12=true;
+  public show_class9 = true;
+  public show_class10 = false;
+  public show_class11 = false;
+  public show_class12 = false;
+
+  public chapterForClass9: ChapterResponseDto[] = [];
+  public chapterForClass10: ChapterResponseDto[] = [];
+  public chapterForClass11: ChapterResponseDto[] = [];
+  public chapterForClass12: ChapterResponseDto[] = [];
+
+  public chapters9: SafeResourceUrl[] = [];
+  public chapters10: SafeResourceUrl[] = [];
+  public chapters11: SafeResourceUrl[] = [];
+  public chapters12: SafeResourceUrl[] = [];
+
 
   constructor(
-    private repo: ChapterRepository
-  ) { }
+    private repo: ChapterRepository,
+    private dom: DomSanitizer
+  ) {
+  }
 
   modifyC9() {
-    this.c9 = !this.c9;
+    this.show_class9 = !this.show_class9;
   }
+
   modifyC10() {
-    this.c10 = !this.c10;
+    this.show_class10 = !this.show_class10;
   }
+
   modifyC11() {
-    this.c11 = !this.c11;
+    this.show_class11 = !this.show_class11;
   }
+
   modifyC12() {
-    this.c12 = !this.c12;
+    this.show_class12 = !this.show_class12;
   }
 
   ngOnInit(): void {
-    let chapter: Chapter = new Chapter();
-    chapter.chapterId = "12345";
-    chapter.chapterCode="A";
-    chapter.pdfHref = "sss";
-    chapter.chapterName = "ufffn";
-    //this.repo.addChapter(chapter).subscribe(res => console.log(res));
-    //this.repo.deleteChapter("123").subscribe();
+    // get chapter by class mock
+    // this.getAllChapter();
+
+    // class 9
+    this.repo.getAllChapterForClass9_mock().subscribe(
+      response => {
+        this.chapterForClass9 = response
+      }
+    );
+
+    // this.chapterForClass9.map(element => {
+    //   this.chapters9.push(this.dom.bypassSecurityTrustResourceUrl(element.pdfHref))
+    // });
   }
 
+  getAllChapter(): void {
+    // class 9
+    this.repo.getAllChapterForClass9_mock().subscribe(
+      response => {
+        this.chapterForClass9 = response
+      }
+    );
+
+    this.chapterForClass9.map(element => {
+      this.chapters9.push(this.dom.bypassSecurityTrustResourceUrl(element.pdfHref))
+    });
+
+    // class 10
+    this.repo.getAllChapterForClass10_mock().subscribe(
+      response => {
+        this.chapterForClass10 = response
+      }
+    );
+
+    this.chapterForClass10.map(element => {
+      this.chapters10.push(this.dom.bypassSecurityTrustResourceUrl(element.pdfHref))
+    });
+
+    // class 11
+    this.repo.getAllChapterForClass11_mock().subscribe(
+      response => {
+        this.chapterForClass11 = response
+      }
+    );
+
+    this.chapterForClass11.map(element => {
+      this.chapters11.push(this.dom.bypassSecurityTrustResourceUrl(element.pdfHref))
+    });
+
+    // class 12
+    this.repo.getAllChapterForClass12_mock().subscribe(
+      response => {
+        this.chapterForClass12 = response
+      }
+    );
+
+    this.chapterForClass12.map(element => {
+      this.chapters12.push(this.dom.bypassSecurityTrustResourceUrl(element.pdfHref))
+    });
+  }
 }

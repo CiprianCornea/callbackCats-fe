@@ -1,5 +1,4 @@
-export class ChapterResponseDto {
-  externalId!: string;
+export class ChapterForUpdateDto {
   chapterName!: string;
   pdfHref!: string;
   chapterCode!: string;

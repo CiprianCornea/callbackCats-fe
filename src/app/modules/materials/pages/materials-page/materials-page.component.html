@@ -1,36 +1,37 @@
 <div class="text-box">
   <button (click)="modifyC9()" class="hero-btn">Clasa a 9a</button>
-  <button (click)="modifyC10()"class="hero-btn">Clasa a 10a</button>
+  <button (click)="modifyC10()" class="hero-btn">Clasa a 10a</button>
   <button (click)="modifyC11()" class="hero-btn">Clasa a 11a</button>
   <button (click)="modifyC12()" class="hero-btn">Clasa a 12a</button>
-  <div [hidden]="c9" class="row text-box">
-    <iframe class="column" src="https://onedrive.live.com/embed?cid=EE3338ACBC4E8502&resid=EE3338ACBC4E8502%2135090&authkey=ABAoW_UmMWkN078&em=2" width="300" height="200" frameborder="0"></iframe>
-    <iframe class="column" src="https://onedrive.live.com/embed?cid=EE3338ACBC4E8502&resid=EE3338ACBC4E8502%2135087&authkey=AN8y8vhCIFykedo&em=2" width="300" height="200" frameborder="0"></iframe>
-    <iframe class="column" src="https://onedrive.live.com/embed?cid=EE3338ACBC4E8502&resid=EE3338ACBC4E8502%2135094&authkey=AFXNQG_VKdFmx34&em=2" width="300" height="200" frameborder="0"></iframe>
-    <iframe class="column" src="https://onedrive.live.com/embed?cid=EE3338ACBC4E8502&resid=EE3338ACBC4E8502%2135096&authkey=AA3KFIf2KD_4t3w&em=2" width="300" height="200" frameborder="0"></iframe>
-    <iframe class="column" src="https://onedrive.live.com/embed?cid=EE3338ACBC4E8502&resid=EE3338ACBC4E8502%2135093&authkey=ALAHh_-7FGSoJ8U&em=2" width="300" height="200" frameborder="0"></iframe>
-  </div>
-  <div [hidden]="c10" class="row text-box">
-    <iframe class="column" src="https://onedrive.live.com/embed?cid=EE3338ACBC4E8502&resid=EE3338ACBC4E8502%2135115&authkey=AKEzFUKxK6fYlCk&em=2" width="300" height="200" frameborder="0"></iframe>
-    <iframe class="column" src="https://onedrive.live.com/embed?cid=EE3338ACBC4E8502&resid=EE3338ACBC4E8502%2135114&authkey=AK12LAgUX0xST8M&em=2" width="300" height="200" frameborder="0"></iframe>
-    <iframe class="column" src="https://onedrive.live.com/embed?cid=EE3338ACBC4E8502&resid=EE3338ACBC4E8502%2135108&authkey=APeDiyWbz2KAQEg&em=2" width="300" height="200" frameborder="0"></iframe>
-    <iframe class="column" src="https://onedrive.live.com/embed?cid=EE3338ACBC4E8502&resid=EE3338ACBC4E8502%2135109&authkey=ADXfz3Z_-69qv7Y&em=2" width="300" height="200" frameborder="0"></iframe>
-    <iframe class="column" src="https://onedrive.live.com/embed?cid=EE3338ACBC4E8502&resid=EE3338ACBC4E8502%2135107&authkey=ABPkeENtaEayzLo&em=2" width="300" height="200" frameborder="0"></iframe>
-    <iframe class="column" src="https://onedrive.live.com/embed?cid=EE3338ACBC4E8502&resid=EE3338ACBC4E8502%2135104&authkey=AJORoR14TiLZmGc&em=2" width="300" height="200" frameborder="0"></iframe>
-    <iframe class="column" src="https://onedrive.live.com/embed?cid=EE3338ACBC4E8502&resid=EE3338ACBC4E8502%2135113&authkey=AM2mIByp2aFzTS4&em=2" width="300" height="200" frameborder="0"></iframe>
 
+  <!--  class 9-->
+  <div *ngIf="show_class9">
+    <ng-container *ngFor="let chapter of chapterForClass9" class="row text-box">
+      <iframe  class="column" [src]="chapter" width="300" height="200" frameborder="0"></iframe>
+    </ng-container>
   </div>
-  <div [hidden]="c11" class="row text-box">
-    <iframe class="column" src="https://onedrive.live.com/embed?cid=EE3338ACBC4E8502&resid=EE3338ACBC4E8502%2135139&authkey=ADoszAUNXO-w9VA&em=2" width="476" height="288" frameborder="0"></iframe>
-    <iframe class="column" src="https://onedrive.live.com/embed?cid=EE3338ACBC4E8502&resid=EE3338ACBC4E8502%2135136&authkey=AOnLFi7JzvcCVK8&em=2" width="476" height="288" frameborder="0"></iframe>
-    <iframe class="column" src="https://onedrive.live.com/embed?cid=EE3338ACBC4E8502&resid=EE3338ACBC4E8502%2135132&authkey=ABrR7BnAIi6J7Gc&em=2" width="476" height="288" frameborder="0"></iframe>
-    <iframe class="column" src="https://onedrive.live.com/embed?cid=EE3338ACBC4E8502&resid=EE3338ACBC4E8502%2135145&authkey=AKue9FRKcxaHwG0&em=2" width="476" height="288" frameborder="0"></iframe>
-    <iframe class="column" src="https://onedrive.live.com/embed?cid=EE3338ACBC4E8502&resid=EE3338ACBC4E8502%2135142&authkey=ABh-SM6I2aShxew&em=2" width="476" height="288" frameborder="0"></iframe>
-    <iframe class="column" src="https://onedrive.live.com/embed?cid=EE3338ACBC4E8502&resid=EE3338ACBC4E8502%2135133&authkey=AI5Zp_orz1bVx14&em=2" width="476" height="288" frameborder="0"></iframe>
-    <iframe class="column" src="https://onedrive.live.com/embed?cid=EE3338ACBC4E8502&resid=EE3338ACBC4E8502%2135126&authkey=AM9QX4tmwPPfFIE&em=2" width="476" height="288" frameborder="0"></iframe>
-  </div>
-  <div [hidden]="c12" class="row text-box">
-  </div>
+
+<!--  &lt;!&ndash;  class 10&ndash;&gt;-->
+<!--  <div *ngIf="show_class10">-->
+<!--    <ng-container *ngFor="let chapter of chapters10" class="row text-box">-->
+<!--      <iframe  class="column" [src]="chapter" width="300" height="200" frameborder="0"></iframe>-->
+<!--    </ng-container>-->
+<!--  </div>-->
+
+<!--  &lt;!&ndash;  class 9&ndash;&gt;-->
+<!--  <div *ngIf="show_class11">-->
+<!--    <ng-container *ngFor="let chapter of chapters11" class="row text-box">-->
+<!--      <iframe  class="column" [src]="chapter" width="300" height="200" frameborder="0"></iframe>-->
+<!--    </ng-container>-->
+<!--  </div>-->
+
+<!--  &lt;!&ndash;  class 9&ndash;&gt;-->
+<!--  <div *ngIf="show_class12">-->
+<!--    <ng-container *ngFor="let chapter of chapters12" class="row text-box">-->
+<!--      <iframe  class="column" [src]="chapter" width="300" height="200" frameborder="0"></iframe>-->
+<!--    </ng-container>-->
+<!--  </div>-->
+
 </div>
 
 

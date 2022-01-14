@@ -25,7 +25,6 @@ export class JwtInterceptor implements HttpInterceptor {
       });
       return next.handle(request);
     }
-
   }
 
   checkIfUrlInWhiteList(request: HttpRequest<any>): boolean {
@@ -37,6 +36,6 @@ export class JwtInterceptor implements HttpInterceptor {
       }
     });
 
-    return true;
+    return valid;
   }
 }
