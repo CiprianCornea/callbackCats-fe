@@ -26,7 +26,7 @@ export class ChapterRepository {
       {
         "externalId": "ac866eae-15a2-465e-b0a6-5c95dbf21e68",
         "chapterName": "9_MultimiSiLogicaMatematica",
-        "pdfHref": "https://onedrive.live.com/?authkey=%21ANDaOX4VmWk7xNM&cid=EE3338ACBC4E8502&id=EE3338ACBC4E8502%2135090&parId=EE3338ACBC4E8502%2135083&o=OneUp",
+        "pdfHref": "https://onedrive.live.com/embed?cid=EE3338ACBC4E8502&resid=EE3338ACBC4E8502%2135090&authkey=ABAoW_UmMWkN078&em=2",
         "chapterCode": "A"
       },
       {
@@ -219,8 +219,8 @@ export class ChapterRepository {
     return this.http.delete<void>(`${environment}/chapter/delete/?externalId=${externalId}`);
   }
 
-  getAllChapterForClass(classNumber: number): Observable<ChapterResponseDto[]> {
-    return this.http.get<ChapterResponseDto[]>(`${environment.apiUrl}/chapter/find-chapters-by-class/?className=${classNumber}`);
+  getAllChapterForClass(className: string): Observable<ChapterResponseDto[]> {
+    return this.http.post<ChapterResponseDto[]>(`${environment.apiUrl}/chapter/find-chapters-by-class?className=${className}`, {});
   }
 
   isChapterDone(chapterExternalId: string): Observable<boolean> {

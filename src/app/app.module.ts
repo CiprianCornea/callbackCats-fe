@@ -9,6 +9,16 @@ import {MatIconModule} from "@angular/material/icon";
 import {HttpClientModule} from "@angular/common/http";
 import {CommonModule} from "@angular/common";
 import {MaterialsModule} from "./modules/materials/materials.module";
+import {AuthInterceptorProvider} from "./modules/core/interceptors/jwt.interceptor.service";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatInputModule} from "@angular/material/input";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
+import {MatButtonModule} from "@angular/material/button";
+import {MatTableModule} from "@angular/material/table";
+import {MatCardModule} from "@angular/material/card";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatSelectModule} from "@angular/material/select";
 
 // import {BasicAuthHttpInterceptorService} from "./modules/core/interceptors/basic-auth-http-interceptor.service";
 
@@ -24,11 +34,22 @@ import {MaterialsModule} from "./modules/materials/materials.module";
     HttpClientModule,
     CommonModule,
     MaterialsModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSelectModule,
+    MatTableModule,
+    MatCardModule
   ],
   providers: [
-    // {
-    //   provide:HTTP_INTERCEPTORS, useClass:BasicAuthHttpInterceptorService, multi:true
-    // }
+    AuthInterceptorProvider
   ],
   bootstrap: [AppComponent]
 })

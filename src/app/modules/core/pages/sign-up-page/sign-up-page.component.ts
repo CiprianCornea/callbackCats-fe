@@ -28,13 +28,13 @@ export class SignUpPageComponent implements OnInit {
     this.authService.login('admin1','admin1').subscribe();
     //this.getAccessToken(this.authRequest);
     //this.userRepository.login();
-    // let user = new User();
-    // user.username = "admin1"
-    // user.password = "admin1"
-    // user.email = "admin1@bac360.com"
-    // user.isAdmin = true
-    // user.chaptersDone = "A"
-    // this.userRepository.signUp(user).subscribe(res => console.log(res));
+    let user = new User();
+    user.username = "admin22"
+    user.password = "admin22"
+    user.email = "adm22in2@bac360.com"
+    user.isAdmin = true
+    user.chaptersDone = "A"
+    this.userRepository.signUp(user).subscribe(res => console.log(res));
    //  this.authService.login('testul1', 'parola1').subscribe(
    //    res => console.log(res)
    // );

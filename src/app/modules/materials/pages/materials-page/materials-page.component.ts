@@ -52,15 +52,19 @@ export class MaterialsPageComponent implements OnInit {
     // this.getAllChapter();
 
     // class 9
-    this.repo.getAllChapterForClass9_mock().subscribe(
-      response => {
-        this.chapterForClass9 = response
-      }
-    );
-
+    // this.repo.getAllChapterForClass9_mock().subscribe(
+    //   response => {
+    //     this.chapterForClass9 = response
+    //   }
+    // );
+    //
     // this.chapterForClass9.map(element => {
     //   this.chapters9.push(this.dom.bypassSecurityTrustResourceUrl(element.pdfHref))
     // });
+
+    this.repo.getAllChapterForClass('9').subscribe();
+
+    // this.repo.findChapterByExternalId("ac866eae-15a2-465e-b0a6-5c95dbf21e68").subscribe();
   }
 
   getAllChapter(): void {

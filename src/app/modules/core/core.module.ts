@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginPageComponent } from './pages/login-page/login-page.component';
+import {LoginComponent} from './pages/login-page/login-page.component';
 import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component';
 import {UserToUserRequestDtoAdapter} from "./adapters/user-to-user-request.dto.adapter";
 import {UserResponseDtoToUserAdapter} from "./adapters/user-response.dto-to-user.adapter";
@@ -9,7 +9,7 @@ import {UserResponseDtoToUserAdapter} from "./adapters/user-response.dto-to-user
 
 @NgModule({
   declarations: [
-    LoginPageComponent,
+    LoginComponent,
     SignUpPageComponent
   ],
   imports: [

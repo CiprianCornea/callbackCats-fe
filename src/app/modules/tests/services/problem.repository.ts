@@ -18,8 +18,9 @@ export class ProblemRepository {
     private problemResponseDtoToProblemAdapter: ProblemResponseDtoToProblemAdapter
   ) { }
 
-  addProblem(problem: Problem): Observable<Problem> {
-    let problemRequest = this.problemToProblemRequestDtoAdapter.adapter(problem);
+  // addProblem(problem: Problem): Observable<Problem> {
+  //   let problemRequest = this.problemToProblemRequestDtoAdapter.adapter(problem);
+  // }
 
-  }
+
 }

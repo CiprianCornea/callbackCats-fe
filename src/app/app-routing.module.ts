@@ -7,6 +7,7 @@ import {MaterialsPageComponent} from "./modules/materials/pages/materials-page/m
 import {SignUpPageComponent} from "./modules/core/pages/sign-up-page/sign-up-page.component";
 import {TestsPageComponent} from "./modules/tests/pages/tests-page/tests-page.component";
 import {AccountPageComponent} from "./modules/account/pages/account-page/account-page.component";
+import {LoginComponent} from "./modules/core/pages/login-page/login-page.component";
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
