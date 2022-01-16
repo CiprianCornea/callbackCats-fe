@@ -3,32 +3,28 @@
   <button (click)="modifyC10()" class="hero-btn">Clasa a 10a</button>
   <button (click)="modifyC11()" class="hero-btn">Clasa a 11a</button>
   <button (click)="modifyC12()" class="hero-btn">Clasa a 12a</button>
+  <br><br>
 
-  <div [hidden]="c9" class="row text-box">
-    <img src="https://by3301files.storage.live.com/y4m0cfB0tAnuA4Egwx5PNjKyBWNtIQ86CQL8akgcKsSbpgiTzf25bIeMbULS6iYYY7UHqIjgNtEJlOIFmcVq3AfrqFA7at_z0WpuGCAe8_Wz7nVnX-_S_UuLbSR3E2NtKyJ7cqEk5vtrDDFqdwg_RvI26hxGuEJJkGHEWbyh7QjgvTSiBzinVg5TaXvB3Xuqa4g?width=702&height=120&cropmode=none" width="702" height="120" /><br>
-    <img src="https://by3301files.storage.live.com/y4mEPeuq2vwMCQwGbAddXeD8y4QOaoTyj7V0TGRZFS5LoXWkEEMHI0di8y6h5JV81gFJ6rIoJ_9lfdAOo2Q6zFS3w2Nvem1mDvXqAhecraszE92R2uucMxdEDJWc3kz3EMlsWyDqjdC5gIaymBoa0GKH1tGChaedKf9Ec3Cz_CJzhGzsAohexqFmHUnLtcP8e0m?width=700&height=94&cropmode=none" width="700" height="94" /><br>
-    <img src="https://by3301files.storage.live.com/y4mFz7RYFRffYHUz_oxZ3pCyR-6bnyUYkVaaAM2r1gTqF_A-q4idlZTMOY1NNZj4JVzYVENJwEqZkcL-Ytprc1Iyf-HjArysBGxWv45hAOb2bqSZdeBn6NGHgZPlRYGI19w3-g9KDQXUwyAvhqnwzYpB1O6SCIz0-gLee_dMeYg_SfJUWfpGxkob19m8gngz1ni?width=697&height=109&cropmode=none" width="697" height="109" /><br>
-    <img src="https://by3301files.storage.live.com/y4mOWEDzWzMurd1pFUHLYCo2tskuIR5IVNZwSKOq-iDjD-SX5KDfdWx2T8k1fhrYUIFzuFmU9GuzRzbpIsZk2LFCpLbDEgHxOWci686qGcM6BM6pg_Ha52dTTD6oU32wCxgbIgwRmv4GfwA5UwQzTGUrIl9LyMyUebMyilqUC87pnsFGuX1I5Y1r8SGlUNKk2TQ?width=699&height=103&cropmode=none" width="699" height="103" /><br>
-    <img src="https://by3301files.storage.live.com/y4mykjeThhcLbSs6i2azOH71gSgrcQcBQYLlovbn9w1z8LqEisOszmNVeyBDuHVCuzlLEgz-9muLiF45fYH8DoJ92U19wupHqE9aOpxldoInYS3WncdEAjgoKJFNkVzDNGRZQEZGmpOJjwH6xSnz3XNCyfQXibDzNARoqIVbjb4KSqKfIgAuJ3vunxlSSBPcS5D?width=698&height=123&cropmode=none" width="698" height="123" /><br>
-  <br>
+  <button (click)="showTest()" type="submit" class="hero-btn-white red-btn">Trigonometrie</button>
+<div [hidden]="c9">
+  <div  [hidden]="trigonometrie" class="row text-box">
+    <img *ngFor="let question of test1" src="{{question.imageHref}}" height="200" width="1000"   alt="intrebare"/><br>
+    <br>
     <div class="contact-col">
-      <form action="">
-        <input  placeholder="Problema 1" required>
-        <input  placeholder="Problema 2" required>
-        <input  placeholder="Problema 3" required>
-        <input  placeholder="Problema 4" required>
-        <input  placeholder="Problema 5" required><br><br>
-        <button (click)="eVerificat()" class="hero-btn-black red-btn">Verificare</button>
-      </form>
+      <button (click)="onSubmit()" type="submit" class="hero-btn-black red-btn">Verificare</button>
     </div>
     <br>
     <div [hidden]="verificat">
       <button (click)="showSolution()" type="submit" class="hero-btn-black red-btn">Solutie</button>
     </div>
     <div [hidden]="checkTest">
-      <iframe class="column" src="https://onedrive.live.com/embed?cid=EE3338ACBC4E8502&resid=EE3338ACBC4E8502%2135091&authkey=AHv6VMRANQGKxyU&em=2" width="300" height="200" frameborder="0"></iframe>
+      <img src="{{test1[0].explanationHref}}" height="800" width="1000"   alt="intrebare"/><br>
+      <img src="{{test1[1].explanationHref}}" height="900" width="1000"   alt="intrebare"/><br>
+      <img src="{{test1[2].explanationHref}}" height="400" width="1000"   alt="intrebare"/><br>
+      <img src="{{test1[3].explanationHref}}" height="1300" width="1000"   alt="intrebare"/><br>
+      <img src="{{test1[4].explanationHref}}" height="800" width="1000"   alt="intrebare"/><br>
     </div>
   </div>
 </div>
 
-
+</div>

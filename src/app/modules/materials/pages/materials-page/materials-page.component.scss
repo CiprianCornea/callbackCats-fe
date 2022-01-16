@@ -1,10 +1,10 @@
-.text-box{
+.text-box-materials{
   color: white;
   width: 80%;
   height: 80%;
   transform: translate(-50%, -50%);
   position: absolute;
-  top: 55%;
+  top: 60%;
   left: 50%;
 }
 
@@ -46,4 +46,57 @@
 
 #grad {
   background-image: linear-gradient(red, yellow);
+}
+
+.btn {
+  border: none;
+  background-color: gray;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 20%;
+
+}
+
+.when-is-done {
+  background-color: purple;
+}
+/* On mouse-over */
+.btn:hover {background-color: green;}
+
+.done {
+  color: black;
+}
+
+.progress {
+  position: relative;
+  width: 210px;
+  height: 30px;
+  background: #9cbab4;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress__fill {
+  width: 0%;
+  height: 100%;
+  background: #009579;
+  transition: all 0.2s;
+}
+
+.progress__text {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+  font: bold 14px "Quicksand", sans-serif;
+  color: #ffffff;
+}
+
+.mat-progress-bar-background {
+  background-color: black;
+  height: 20px;
+  width: 985px;
+
 }

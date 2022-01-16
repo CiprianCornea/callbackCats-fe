@@ -19,6 +19,10 @@ import {MatTableModule} from "@angular/material/table";
 import {MatCardModule} from "@angular/material/card";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatSelectModule} from "@angular/material/select";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {SignUpPageComponent} from "./modules/core/pages/sign-up-page/sign-up-page.component";
+import {CoreModule} from "./modules/core/core.module";
+import {TestsModule} from "./modules/tests/tests.module";
 
 // import {BasicAuthHttpInterceptorService} from "./modules/core/interceptors/basic-auth-http-interceptor.service";
 
@@ -46,7 +50,10 @@ import {MatSelectModule} from "@angular/material/select";
     MatIconModule,
     MatSelectModule,
     MatTableModule,
-    MatCardModule
+    MatCardModule,
+    MatProgressBarModule,
+    CoreModule,
+    TestsModule
   ],
   providers: [
     AuthInterceptorProvider

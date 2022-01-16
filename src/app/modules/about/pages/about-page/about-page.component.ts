@@ -8,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class AboutPageComponent implements OnInit {
   imageSrc = "src/app/shared/images/about.jpg";
   imageAlt="iphone"
+  public logged: any;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.logged = localStorage.getItem('logged');
   }
 
 }

@@ -10,6 +10,7 @@ import {BehaviorSubject} from "rxjs";
 })
 export class AuthService {
   private readonly TOKEN_NAME = 'access_token';
+  private readonly LOGGED = 'logged';
   private _isLoggedIn$ = new BehaviorSubject<boolean>(false);
   isLoggedIn$ = this._isLoggedIn$.asObservable();
 
@@ -31,6 +32,7 @@ export class AuthService {
       tap(
         (response: AuthDto) => {
           localStorage.setItem(this.TOKEN_NAME, response.token);
+          localStorage.setItem(this.LOGGED, 'true')
           this._isLoggedIn$.next(true);
         },
         (error: HttpErrorResponse) => {

@@ -25,8 +25,4 @@ export class UserRepository {
     return this.http.post<UserResponseDto>(`${this.apiServerUrl}/sign-up`, userRequest);
   }
 
-  login() {
-    return this.http.post(`${this.apiServerUrl}/login`, {"username": "corffffnea", "password": "ciprifffan"}).subscribe(res => console.log(res));
-  }
-
 }

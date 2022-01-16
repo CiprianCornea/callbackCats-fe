@@ -1,37 +1,50 @@
-<div class="text-box">
+<div class="text-box-materials">
+  <mat-progress-bar class="mat-progress-bar-background" mode="determinate" value="{{classProgress}}"></mat-progress-bar>
+
   <button (click)="modifyC9()" class="hero-btn">Clasa a 9a</button>
   <button (click)="modifyC10()" class="hero-btn">Clasa a 10a</button>
   <button (click)="modifyC11()" class="hero-btn">Clasa a 11a</button>
   <button (click)="modifyC12()" class="hero-btn">Clasa a 12a</button>
 
-  <!--  class 9-->
-<!--  <div *ngIf="show_class9">-->
-<!--    <ng-container *ngFor="let chapter of chapters9" class="row text-box">-->
-<!--      <iframe  class="column" [src]="chapter" width="300" height="200" frameborder="0"></iframe>-->
-<!--    </ng-container>-->
-<!--  </div>-->
+<!--    class 9-->
+  <div *ngIf="show_class9">
+    <ng-container *ngFor="let chapter of chapters9" class="row text-box">
+      <iframe  class="column" [src]="chapter.chapterUrl" width="300" height="200" frameborder="0"></iframe>
+      <button (click)="chapterDone(chapter.id, chapter.chapterCode)" class="btn done when-is-done" >Finalizat</button>
+    </ng-container>
+    <br>
+    <br>
 
-<!--  &lt;!&ndash;  class 10&ndash;&gt;-->
-<!--  <div *ngIf="show_class10">-->
-<!--    <ng-container *ngFor="let chapter of chapters10" class="row text-box">-->
-<!--      <iframe  class="column" [src]="chapter" width="300" height="200" frameborder="0"></iframe>-->
-<!--    </ng-container>-->
-<!--  </div>-->
 
-<!--  &lt;!&ndash;  class 9&ndash;&gt;-->
-<!--  <div *ngIf="show_class11">-->
-<!--    <ng-container *ngFor="let chapter of chapters11" class="row text-box">-->
-<!--      <iframe  class="column" [src]="chapter" width="300" height="200" frameborder="0"></iframe>-->
-<!--    </ng-container>-->
-<!--  </div>-->
+  </div>
 
-<!--  &lt;!&ndash;  class 9&ndash;&gt;-->
-<!--  <div *ngIf="show_class12">-->
-<!--    <ng-container *ngFor="let chapter of chapters12" class="row text-box">-->
-<!--      <iframe  class="column" [src]="chapter" width="300" height="200" frameborder="0"></iframe>-->
-<!--    </ng-container>-->
-<!--  </div>-->
+  <!--  class 10-->
+  <div *ngIf="show_class10">
+    <ng-container *ngFor="let chapter of chapters10" class="row text-box">
+      <iframe  class="column" [src]="chapter.chapterUrl" width="300" height="200" frameborder="0"></iframe>
+      <button (click)="chapterDone(chapter.id, chapter.chapterCode)" class="btn done when-is-done" >Finalizat</button>
+
+    </ng-container>
+  </div>
+
+  <!--  class 11-->
+  <div *ngIf="show_class11">
+    <ng-container *ngFor="let chapter of chapters11" class="row text-box">
+      <iframe  class="column" [src]="chapter.chapterUrl" width="300" height="200" frameborder="0"></iframe>
+      <button (click)="chapterDone(chapter.id, chapter.chapterCode)" class="btn done when-is-done" >Finalizat</button>
+    </ng-container>
+  </div>
+
+  <!--  class 12-->
+  <div *ngIf="show_class12">
+    <ng-container *ngFor="let chapter of chapters12" class="row text-box">
+      <iframe  class="column" [src]="chapter.chapterUrl" width="300" height="200" frameborder="0"></iframe>
+      <button (click)="chapterDone(chapter.id, chapter.chapterCode)" class="btn done when-is-done" >Finalizat</button>
+    </ng-container>
+  </div>
 
 </div>
+
+
 
 

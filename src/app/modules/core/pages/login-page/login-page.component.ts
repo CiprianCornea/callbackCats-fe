@@ -1,11 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { tap } from 'rxjs/operators'
-import { BehaviorSubject } from 'rxjs';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { ActivatedRoute, Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 import {AuthService} from "../../services/auth.service";
-import { MatError} from "@angular/material/form-field";
 
 @Component({
   selector: 'app-login',
@@ -29,8 +25,8 @@ export class LoginComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
-    console.log('here')
-    this.authenticationService.login('admin1', 'admin1').subscribe();
+    console.log(this.loginForm.controls['username'].value)
+    // this.authenticationService.login(this.loginForm.controls['username'].value, this.loginForm.controls['password'].value).subscribe();
   }
 
   get f() {
@@ -46,11 +42,11 @@ export class LoginComponent implements OnInit {
 
     this.loading = true;
     console.log('im here')
-    this.authenticationService.login('admin1', 'admin1')
+    this.authenticationService.login(this.loginForm.controls['username'].value, this.loginForm.controls['password'].value)
       .subscribe(
         () => {
           console.log('ok')
-          this.router.navigate(['/home']);
+          this.router.navigate(['/about']);
         },
         error => {
           this.error = error;

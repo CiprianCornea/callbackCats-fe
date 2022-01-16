@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {environment} from "../../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {ProblemToProblemRequestDtoAdapter} from "../adapters/problem-to-problem-request.dto.adapter";
 import {ProblemResponseDtoToProblemAdapter} from "../adapters/problem-response.dto-to-problem.adapter";
-import {Problem} from "../models/problem";
+import {ProblemResponseDto} from "../models/dto/problem-response.dto";
 import {Observable} from "rxjs";
 
 @Injectable({
@@ -22,5 +22,8 @@ export class ProblemRepository {
   //   let problemRequest = this.problemToProblemRequestDtoAdapter.adapter(problem);
   // }
 
+  getProblemsByChapterExternalId(chapterExternalId: string): Observable<ProblemResponseDto[]> {
+    return this.http.get<ProblemResponseDto[]>(`${environment.apiUrl}/problems/find-problems/${chapterExternalId}`);
+  }
 
 }

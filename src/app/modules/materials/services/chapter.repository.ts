@@ -228,10 +228,10 @@ export class ChapterRepository {
   }
 
   getProgressForClass(className: number): Observable<number> {
-    return this.http.get<number>(`${environment.apiUrl}/find-progress/?className=${className}`);
+    return this.http.get<number>(`${environment.apiUrl}/chapter/find-progress?className=${className}`);
   }
 
-  changeChapterStatus(chapterCode: string): Observable<void> {
-    return this.http.get<void>(`${environment.apiUrl}/chapter/change-status/?chapterCode=${chapterCode}`);
+  changeChapterStatus(chapterCode: string): Observable<any> {
+    return this.http.patch<any>(`${environment.apiUrl}/chapter/change-status?chapterCode=${chapterCode}`, {});
   }
 }

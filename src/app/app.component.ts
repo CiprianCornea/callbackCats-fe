@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'callbackCats-fe';
-  logged = true
+  logged = localStorage.getItem('logged');
 }

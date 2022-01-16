@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: 'about', component: AboutPageComponent},
   {path: 'contact', component: ContactPageComponent},
   {path: 'materials', component: MaterialsPageComponent},
-  {path: 'login', component: SignUpPageComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'tests', component:TestsPageComponent},
   {path: 'account', component:AccountPageComponent}
 ];

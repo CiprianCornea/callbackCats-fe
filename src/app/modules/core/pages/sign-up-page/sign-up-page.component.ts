@@ -9,30 +9,27 @@ import {AuthService} from "../../services/auth.service";
   styleUrls: ['./sign-up-page.component.scss']
 })
 export class SignUpPageComponent implements OnInit {
-
-  public testVar: User = {
-    username:"aa",
-    password:"aaa",
-    email:"aa@math.ubbcluj.ro",
-    isAdmin:false,
-    chaptersDone:"B"
-  };
-
+  public email!: string;
 
   constructor(
-    private userRepository: UserRepository,
-    private authService: AuthService
+    private userRepository: UserRepository
   ) { }
 
+  getEmail() {
+    console.log(this.email);
+    return this.email;
+  }
+
   ngOnInit(): void {
-    this.authService.login('admin1','admin1').subscribe();
+
+    // this.authService.login('admin1','admin1').subscribe();
     //this.getAccessToken(this.authRequest);
     //this.userRepository.login();
     let user = new User();
-    user.username = "admin22"
-    user.password = "admin22"
-    user.email = "adm22in2@bac360.com"
-    user.isAdmin = true
+    user.username = "admin"
+    user.password = "admin"
+    user.email = "admin@bac360.com"
+    user.isAdmin = false
     user.chaptersDone = "A"
     this.userRepository.signUp(user).subscribe(res => console.log(res));
    //  this.authService.login('testul1', 'parola1').subscribe(
@@ -41,22 +38,24 @@ export class SignUpPageComponent implements OnInit {
    //  this.authService.login(user.username, user.password).subscribe();
     //this.authService.generateToken({username: 'testul1', password: 'parola1'}).subscribe();
 
-    const signUpButton = document.getElementById('SignUp');
-    const signInButton = document.getElementById('SignIn');
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
     const container = document.getElementById('container');
 
     // @ts-ignore
     signUpButton.addEventListener('click', () => {
       // @ts-ignore
-      container.classList.add("right-panel-active")
+      container.classList.add("right-panel-active");
     });
 
     // @ts-ignore
     signInButton.addEventListener('click', () => {
       // @ts-ignore
-      container.classList.remove("right-panel-active")
+      container.classList.remove("right-panel-active");
     });
   }
+
+
 
   authRequest:any={
     "username":"ux",

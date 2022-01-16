@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {ProblemRepository} from "../../services/problem.repository";
+import {ProblemResponseDto} from "../../models/dto/problem-response.dto";
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-tests-page',
@@ -12,11 +15,25 @@ export class TestsPageComponent implements OnInit {
   public c12 = true;
   public checkTest = true;
   public verificat = true;
+  public test1: ProblemResponseDto[] = [];
+  quizForm!: FormGroup;
+  public trigonometrie = true;
 
-  constructor() {
+  constructor(private problemsRepo: ProblemRepository,
+              private formBuilder: FormBuilder) {
   }
 
   ngOnInit(): void {
+    this.quizForm = this.formBuilder.group({
+      pb1: [''],
+      pb2: [''],
+      pb3: [''],
+      pb4: [''],
+      pb5: ['']
+    })
+    this.problemsRepo.getProblemsByChapterExternalId("ab49b9dd-9f4b-4485-8477-abb223097dfb").subscribe(
+      response => this.test1 = response
+    );
   }
 
   modifyC9() {
@@ -39,8 +56,12 @@ export class TestsPageComponent implements OnInit {
     this.checkTest = !this.checkTest;
   }
 
-  eVerificat() {
-    this.verificat = !this.verificat;
+
+  onSubmit() {
+    this.verificat = !this.verificat
   }
 
+  showTest() {
+    this.trigonometrie = !this.trigonometrie;
+  }
 }

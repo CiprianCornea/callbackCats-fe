@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ChapterRepository} from "../../services/chapter.repository";
-import {DomSanitizer, SafeResourceUrl, SafeUrl} from "@angular/platform-browser";
+import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 import {ChapterResponseDto} from "../../models/dto/chapter-response.dto";
+import {ChapterForHtml} from "../../models/chapter-for-html";
 
 @Component({
   selector: 'app-materials-page',
@@ -19,10 +20,12 @@ export class MaterialsPageComponent implements OnInit {
   public chapterForClass11: ChapterResponseDto[] = [];
   public chapterForClass12: ChapterResponseDto[] = [];
 
-  public chapters9: SafeResourceUrl[] = [];
-  public chapters10: SafeResourceUrl[] = [];
-  public chapters11: SafeResourceUrl[] = [];
-  public chapters12: SafeResourceUrl[] = [];
+  public chapters9: ChapterForHtml[] = [];
+  public chapters10: ChapterForHtml[] = [];
+  public chapters11: ChapterForHtml[] = [];
+  public chapters12: ChapterForHtml[] = [];
+  public classProgress!: number;
+  public isDone9 = false;
 
 
   constructor(
@@ -32,6 +35,7 @@ export class MaterialsPageComponent implements OnInit {
   }
 
   modifyC9() {
+    // this.ngOnInit();
     this.show_class9 = !this.show_class9;
   }
 
@@ -48,68 +52,68 @@ export class MaterialsPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // get chapter by class mock
-    // this.getAllChapter();
+    this.getAllChapters();
+    // if(this.show_class9) {
+      this.repo.getProgressForClass(9).subscribe(res => this.classProgress = res);
+    // }
 
-    // class 9
-    // this.repo.getAllChapterForClass9_mock().subscribe(
-    //   response => {
-    //     this.chapterForClass9 = response
-    //   }
-    // );
+    // if(this.show_class10) {
+    //   this.repo.getProgressForClass(10).subscribe(res => this.classProgress = res);
+    // }
     //
-    // this.chapterForClass9.map(element => {
-    //   this.chapters9.push(this.dom.bypassSecurityTrustResourceUrl(element.pdfHref))
-    // });
-
-    this.repo.getAllChapterForClass('9').subscribe();
-
-    // this.repo.findChapterByExternalId("ac866eae-15a2-465e-b0a6-5c95dbf21e68").subscribe();
+    // if(this.show_class11) {
+    //   this.repo.getProgressForClass(11).subscribe(res => this.classProgress = res);
+    // }
+    //
+    // if(this.show_class12) {
+    //   this.repo.getProgressForClass(12).subscribe(res => this.classProgress = res);
+    // }
   }
 
-  getAllChapter(): void {
-    // class 9
-    this.repo.getAllChapterForClass9_mock().subscribe(
-      response => {
-        this.chapterForClass9 = response
-      }
-    );
-
-    this.chapterForClass9.map(element => {
-      this.chapters9.push(this.dom.bypassSecurityTrustResourceUrl(element.pdfHref))
+  getAllChapters() {
+    this.repo.getAllChapterForClass('9').subscribe(res => {
+      this.chapterForClass9 = res;
+      this.chapterForClass9.map(element => {
+        this.chapters9.push({'chapterUrl': this.dom.bypassSecurityTrustResourceUrl(element.pdfHref), 'id': element.externalId, 'chapterCode': element.chapterCode})
+      });
     });
 
-    // class 10
-    this.repo.getAllChapterForClass10_mock().subscribe(
-      response => {
-        this.chapterForClass10 = response
-      }
-    );
-
-    this.chapterForClass10.map(element => {
-      this.chapters10.push(this.dom.bypassSecurityTrustResourceUrl(element.pdfHref))
+    this.repo.getAllChapterForClass('10').subscribe(res => {
+      this.chapterForClass10 = res;
+      this.chapterForClass10.map(element => {
+        this.chapters10.push({'chapterUrl': this.dom.bypassSecurityTrustResourceUrl(element.pdfHref), 'id': element.externalId, 'chapterCode': element.chapterCode})
+      });
     });
 
-    // class 11
-    this.repo.getAllChapterForClass11_mock().subscribe(
-      response => {
-        this.chapterForClass11 = response
-      }
-    );
-
-    this.chapterForClass11.map(element => {
-      this.chapters11.push(this.dom.bypassSecurityTrustResourceUrl(element.pdfHref))
+    this.repo.getAllChapterForClass('11').subscribe(res => {
+      this.chapterForClass11 = res;
+      this.chapterForClass11.map(element => {
+        this.chapters11.push({'chapterUrl': this.dom.bypassSecurityTrustResourceUrl(element.pdfHref), 'id': element.externalId, 'chapterCode': element.chapterCode})
+      });
     });
 
-    // class 12
-    this.repo.getAllChapterForClass12_mock().subscribe(
-      response => {
-        this.chapterForClass12 = response
-      }
-    );
-
-    this.chapterForClass12.map(element => {
-      this.chapters12.push(this.dom.bypassSecurityTrustResourceUrl(element.pdfHref))
+    this.repo.getAllChapterForClass('12').subscribe(res => {
+      this.chapterForClass12 = res;
+      this.chapterForClass12.map(element => {
+        this.chapters12.push({'chapterUrl': this.dom.bypassSecurityTrustResourceUrl(element.pdfHref), 'id': element.externalId, 'chapterCode': element.chapterCode})
+      });
     });
   }
+
+  chapterDone(chapterId: string, chapterCode: string) {
+    this.repo.changeChapterStatus(chapterCode).subscribe(res => {
+      this.repo.isChapterDone(chapterId).subscribe(res => this.isDone9 = res);
+      console.log(this.isDone9)
+    });
+  }
+
+  getChapterStatus(chapterCode: string) {
+    let isDone: boolean = false;
+    this.repo.changeChapterStatus(chapterCode).subscribe(res => isDone = res);
+    console.log(isDone)
+    return isDone;
+  }
+
+
+
 }
